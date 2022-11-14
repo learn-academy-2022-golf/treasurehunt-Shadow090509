@@ -27,9 +27,11 @@ const App = () => {
     if (index === treasureLocation) {
       updatedBoard[index] = "💎";
       setBoard(updatedBoard);
+      alert("Congrats! You win!");
     } else if (index === bombLocation) {
       updatedBoard[index] = "💣";
       setBoard(updatedBoard);
+      alert("You lose. Try again.");
     } else {
       updatedBoard[index] = "🌴";
       setBoard(updatedBoard);
@@ -39,6 +41,7 @@ const App = () => {
   return (
     <>
       <h1>Treasure Hunt Game</h1>
+      <h2>Guesses remaining:{[3]}</h2>
       <div className="gameboard">
         {board.map((value, index) => {
           return (
@@ -50,6 +53,11 @@ const App = () => {
             />
           );
         })}
+      </div>
+      <div className="reset">
+        <a href="#" class="btn" onclick="location.reload()">
+          Play again
+        </a>
       </div>
     </>
   );
